@@ -2,7 +2,7 @@
 ## Descrição
 O sensor BMP280 é capaz de realizar leituras de pressão atmosférica e temperatura do ambiente através da interface I2C ou SPI e tensão de 3V.
 
-![](https://github.com/eduardozago/weather-station-iot/weather-station-iot/blob/main/sensores/BMP280/BMP280.jpg)
+![](https://github.com/eduardozago/weather-station-iot/blob/main/sensores/BMP280/BMP280.jpg)
 
 ## Datasheet
 [Datasheet BMP280](https://github.com/eduardozago/weather-station-iot/blob/main/sensores/DHT11/datasheet-BMP280.pdf)
