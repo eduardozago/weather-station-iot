@@ -1,7 +1,7 @@
 # Pluviômetro
 O pluviômetro atua no monitoramento da quantidade de precipitação de chuvas de uma determinada região. O pluviômetro possui em seu interior uma báscula para a medição da precipitação da chuva onde a cada 0,25mm o sensor interno emite um pulso, que pode ser lido e interpretado por um microcontrolador.
 
-![](https://github.com/eduardozago/weather-station-iot/sensores/pluviometro/pluviometro.png)
+![](https://github.com/eduardozago/weather-station-iot/blob/main/sensores/pluviometro/pluviometro.png)
 
 ## Especificações
 - Modelo: PB10
@@ -12,3 +12,12 @@ O pluviômetro atua no monitoramento da quantidade de precipitação de chuvas d
 - Erro máximo: 4% (até 30 mm/h), 5% (até 50mm/h), 7% (até 90 mm/h)
 
 ## Conexão com ESP32
+A imagem a seguir mostro como o pluviômetro é conectado ao ESP32.
+
+![](https://github.com/eduardozago/weather-station-iot/blob/main/sensores/pluviometro/esp32-pluviometro.png)
+
+## Pinagem
+| Pluviômetro | ESP32 |
+| ------ | ------ |
+| VCC | Vin |
+| DATA | GPIO2 |

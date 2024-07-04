@@ -13,6 +13,9 @@ Os sensores realizam leituras periódicas dos dados meteorológicos e são conec
 - Armazenar as informações coletadas em um banco de dados permitindo acesso ao histórico de leituras.
 - Visualizar os dados em uma interface web para monitoramento.
 
+## Arquitetura
+![](https://github.com/eduardozago/weather-station-iot/blob/main/arquitetura.png)
+
 ## Hardware
 O hardware é composto por sensores de temperatura, umidade e pressão atmosférica além de um pluviômetro responsável pela medição da precipitação através das gotas de chuva. Todos os componentes de medição são conectados ao microcontrolador. 
 

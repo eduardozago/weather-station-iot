@@ -19,9 +19,12 @@ O sensor BMP280 é capaz de realizar leituras de pressão atmosférica e tempera
 
 ## Conexão com ESP32
 O sensor BMP280 é conectado ao ESP32 conforme a imagem a seguir.
-![](https://github.com/eduardozago/weather-station-iot/sensores/DHT11/esp32-bmp280.png)
+![](https://github.com/eduardozago/weather-station-iot/blob/main/sensores/BMP280/esp32-bmp280.png)
 
 ## Pinagem
 | BMP280 | ESP32 |
 | ------ | ------ |
-|  |  |
+| VCC | 3V3 |
+| GND | GND |
+| SCL | GPIO22 |
+| SCA | GPIO21 |
