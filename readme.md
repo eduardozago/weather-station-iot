@@ -24,3 +24,7 @@ O componentes de hardware são:
 - [DHT11](https://github.com/eduardozago/weather-station-iot/blob/main/sensores/DHT11): Sensor de temperatura e umidade
 - [BMP280](https://github.com/eduardozago/weather-station-iot/blob/main/sensores/BMP280): Sensor de pressão e temperatura
 - [Pluviômetro](https://github.com/eduardozago/weather-station-iot/blob/main/sensores/pluviometro): Instrumento de medição da precipitação das chuvas
+
+A figura a seguir mostra como são conectados os componentes.
+
+![](https://github.com/eduardozago/weather-station-iot/blob/main/hardware.png)
