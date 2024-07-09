@@ -25,6 +25,6 @@ O sensor DHT11 é conectado ao ESP32 conforme a imagem a seguir.
 ## Pinagem
 | DHT11 | ESP32 |
 | ------ | ------ |
-| VCC | Vin |
+| VCC | 3V3 |
 | DATA | GPIO4 |
 | GND | GND |

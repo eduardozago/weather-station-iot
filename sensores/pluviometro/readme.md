@@ -19,5 +19,5 @@ A imagem a seguir mostro como o pluviômetro é conectado ao ESP32.
 ## Pinagem
 | Pluviômetro | ESP32 |
 | ------ | ------ |
-| VCC | Vin |
+| VCC | Vin/5V |
 | DATA | GPIO2 |
