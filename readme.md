@@ -37,7 +37,7 @@ A figura a seguir mostra como são conectados os componentes.
 | GND       | GND       | -         | GND |
 | -       | -         | DATA         | GPIO2 |
 | -       | DATA      | -         | GPIO4 |
-| SCA       | -         | -         | GPIO21 |
+| SDA       | -         | -         | GPIO21 |
 | SCL       | -         | -         | GPIO22 |
 
 ## Software 
