@@ -20,7 +20,7 @@ Os sensores realizam leituras periódicas dos dados meteorológicos e são conec
 O hardware é composto por sensores de temperatura, umidade e pressão atmosférica além de um pluviômetro responsável pela medição da precipitação através das gotas de chuva. Todos os componentes de medição são conectados ao microcontrolador. 
 
 O componentes de hardware são:
-- ESP32: Microcontrolador 
+- ESP32 (ESP-WROOM-32D): Microcontrolador 
 - [DHT11](https://github.com/eduardozago/weather-station-iot/blob/main/sensores/DHT11): Sensor de temperatura e umidade
 - [BMP280](https://github.com/eduardozago/weather-station-iot/blob/main/sensores/BMP280): Sensor de pressão e temperatura
 - [Pluviômetro](https://github.com/eduardozago/weather-station-iot/blob/main/sensores/pluviometro): Instrumento de medição da precipitação das chuvas
@@ -28,6 +28,17 @@ O componentes de hardware são:
 A figura a seguir mostra como são conectados os componentes.
 
 ![](https://github.com/eduardozago/weather-station-iot/blob/main/hardware.png)
+
+## Pinagem
+| BMP280    | DHT11     | Pluviômetro | ESP32 |
+| ------    | ------    | ------    | ------ |
+| VCC       | VCC       | -         | 3V3 |
+| -       | -         | VCC         | Vin/5V |
+| GND       | GND       | -         | GND |
+| -       | -         | DATA         | GPIO2 |
+| -       | DATA      | -         | GPIO4 |
+| SCA       | -         | -         | GPIO21 |
+| SCL       | -         | -         | GPIO22 |
 
 ## Software 
 
