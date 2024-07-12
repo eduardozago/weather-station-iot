@@ -1,0 +1,1177 @@
+[
+    {
+        "id": "b144945c4a48b5fe",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6e5a86a62a6b82da",
+        "type": "mqtt in",
+        "z": "b144945c4a48b5fe",
+        "name": "",
+        "topic": "prec",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "bea9b25d0c9d4995",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 280,
+        "wires": [
+            [
+                "b1431fbdc12579ae"
+            ]
+        ]
+    },
+    {
+        "id": "52a243ab6aec9c38",
+        "type": "debug",
+        "z": "b144945c4a48b5fe",
+        "name": "precipitation",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "02144d46e3b70971",
+        "type": "ui_gauge",
+        "z": "b144945c4a48b5fe",
+        "name": "",
+        "group": "8f2d188c9fc6df3a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Precipitacao",
+        "label": "mm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "10000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 970,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "75cbd41979d2defc",
+        "type": "mqtt in",
+        "z": "b144945c4a48b5fe",
+        "name": "",
+        "topic": "temp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "bea9b25d0c9d4995",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 480,
+        "wires": [
+            [
+                "fdfef420f6431c04"
+            ]
+        ]
+    },
+    {
+        "id": "093b5de550d6cf4c",
+        "type": "debug",
+        "z": "b144945c4a48b5fe",
+        "name": "insert_payload",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "queryParameters",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1250,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "86e15e3a1b2e7112",
+        "type": "ui_gauge",
+        "z": "b144945c4a48b5fe",
+        "name": "",
+        "group": "16a162d4405c1de1",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "ºC",
+        "format": "{{value}}",
+        "min": "-19",
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1070,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "4b0f4bf133d05d72",
+        "type": "mqtt in",
+        "z": "b144945c4a48b5fe",
+        "name": "",
+        "topic": "hum",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "bea9b25d0c9d4995",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 660,
+        "wires": [
+            [
+                "80a7be72ebc5e12e"
+            ]
+        ]
+    },
+    {
+        "id": "5d429674b20ec828",
+        "type": "debug",
+        "z": "b144945c4a48b5fe",
+        "name": "insert",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "queryParameters",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "676e10aa021f9686",
+        "type": "ui_gauge",
+        "z": "b144945c4a48b5fe",
+        "name": "",
+        "group": "a1f80a83719efdad",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Umidade",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1060,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "86a7d739211c9577",
+        "type": "ui_chart",
+        "z": "b144945c4a48b5fe",
+        "name": "",
+        "group": "0bbe283e757a5394",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Temperatura X Tempo",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-10",
+        "ymax": "50",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1020,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f935acce70ba9ecc",
+        "type": "ui_chart",
+        "z": "b144945c4a48b5fe",
+        "name": "",
+        "group": "a1f80a83719efdad",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Umidade X Tempo",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1130,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c7ec6cdc70106c9e",
+        "type": "postgresql",
+        "z": "b144945c4a48b5fe",
+        "name": "insert_data",
+        "query": "INSERT INTO public.sensors_info(\n\tts, st, val)\n\tVALUES (to_timestamp($ts) AT TIME ZONE 'America/Sao_Paulo', $st, $val);",
+        "postgreSQLConfig": "bbbd892bf7f0b773",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 1270,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "83142afe00639d7d",
+        "type": "ui_form",
+        "z": "b144945c4a48b5fe",
+        "name": "",
+        "label": "",
+        "group": "c6e8b648ebccde3a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Data de inicio",
+                "value": "startDate",
+                "type": "date",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Tempo de inicio",
+                "value": "startTime",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Intervalo (min)",
+                "value": "range",
+                "type": "number",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Tipo de Sensor",
+                "value": "sensorType",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "startDate": "",
+            "startTime": "",
+            "range": "",
+            "sensorType": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 130,
+        "y": 1060,
+        "wires": [
+            [
+                "cbd8675b1d2a7a90",
+                "d1bb6a3a26b54b3d"
+            ]
+        ]
+    },
+    {
+        "id": "cbd8675b1d2a7a90",
+        "type": "debug",
+        "z": "b144945c4a48b5fe",
+        "name": "payload_form",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "2a6568566b430ef4",
+        "type": "ui_gauge",
+        "z": "b144945c4a48b5fe",
+        "name": "",
+        "group": "16a162d4405c1de1",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Pressao",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "200000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1140,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "3c9b0c84c3739ff8",
+        "type": "ui_chart",
+        "z": "b144945c4a48b5fe",
+        "name": "",
+        "group": "0bbe283e757a5394",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Pressao X Tempo",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "200000",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1150,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d1bb6a3a26b54b3d",
+        "type": "function",
+        "z": "b144945c4a48b5fe",
+        "name": "format_form_data",
+        "func": "msg.queryParameters = {};\nmsg.queryParameters.startDate = msg.payload.startDate.split('T')[0];\nlet time = msg.payload.startTime;\ntime = (time.split('T')[1]).split('.')[0];\nmsg.queryParameters.startDate = msg.queryParameters.startDate+'T'+time+'Z';\nmsg.queryParameters.startDate = new Date(msg.queryParameters.startDate).getTime()/1000;\nmsg.queryParameters.range = msg.payload.range;\nmsg.queryParameters.sensorType = Number(msg.payload.sensorType);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 1120,
+        "wires": [
+            [
+                "e9e7655cc3ea3339",
+                "4abfd86aef6c5504"
+            ]
+        ]
+    },
+    {
+        "id": "e9e7655cc3ea3339",
+        "type": "debug",
+        "z": "b144945c4a48b5fe",
+        "name": "queryParameters",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "queryParameters",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "4abfd86aef6c5504",
+        "type": "postgresql",
+        "z": "b144945c4a48b5fe",
+        "name": "get_data",
+        "query": "SELECT date_bin('1 minutes', sensors_info.ts, (to_timestamp($startDate) AT TIME ZONE 'America/Sao_Paulo')) as datebucket, avg(sensors_info.val) as avgval from sensors_info WHERE sensors_info.ts > (to_timestamp($startDate) AT TIME ZONE 'America/Sao_Paulo') AND sensors_info.ts < ((to_timestamp($startDate) AT TIME ZONE 'America/Sao_Paulo') + ($range * interval '1 minute')) AND sensors_info.st = $sensorType GROUP BY datebucket, st ORDER BY datebucket ASC;",
+        "postgreSQLConfig": "bbbd892bf7f0b773",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 680,
+        "y": 1160,
+        "wires": [
+            [
+                "b7ad7b86b0396dd0",
+                "7f364f72a08ce824"
+            ]
+        ]
+    },
+    {
+        "id": "b7ad7b86b0396dd0",
+        "type": "debug",
+        "z": "b144945c4a48b5fe",
+        "name": "query_result",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "7f364f72a08ce824",
+        "type": "function",
+        "z": "b144945c4a48b5fe",
+        "name": "set_chart_data",
+        "func": "var objectdata = {};\nvar i = 0;\nvar data = [\n    [0]\n];\nfor (i = 0; i < msg.payload.length; i++) {\n\n    objectdata = { \"x\": new Date(msg.payload[i].datebucket).getTime(), \"y\": msg.payload[i].avgval };\n    data[0][i] = objectdata;\n}\n\nvar chart = [{\n    \"series\": [\"\"],\n    \"data\": data,\n    \"labels\": [\"\"]\n}];\n\nmsg.payload = chart;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 1220,
+        "wires": [
+            [
+                "9a7befedbedc2d3b",
+                "757fd9a834987636"
+            ]
+        ]
+    },
+    {
+        "id": "757fd9a834987636",
+        "type": "ui_chart",
+        "z": "b144945c4a48b5fe",
+        "name": "",
+        "group": "c6e8b648ebccde3a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Grafico",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-30",
+        "ymax": "50",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1340,
+        "y": 1380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9a7befedbedc2d3b",
+        "type": "debug",
+        "z": "b144945c4a48b5fe",
+        "name": "payload_chart",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1230,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "3cb63ff6842cb55c",
+        "type": "mqtt in",
+        "z": "b144945c4a48b5fe",
+        "name": "",
+        "topic": "pres",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "bea9b25d0c9d4995",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 70,
+        "y": 580,
+        "wires": [
+            [
+                "4a5e3aba7c492e3d"
+            ]
+        ]
+    },
+    {
+        "id": "fdfef420f6431c04",
+        "type": "json",
+        "z": "b144945c4a48b5fe",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 390,
+        "y": 540,
+        "wires": [
+            [
+                "249450124d1115a0",
+                "0d4c181c762cedfd",
+                "b5e6a00fe7fdec3d"
+            ]
+        ]
+    },
+    {
+        "id": "4a5e3aba7c492e3d",
+        "type": "json",
+        "z": "b144945c4a48b5fe",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 370,
+        "y": 620,
+        "wires": [
+            [
+                "c9cae9469b50d445",
+                "3c541a441ccf3c1e",
+                "b7b28d5b54716556"
+            ]
+        ]
+    },
+    {
+        "id": "80a7be72ebc5e12e",
+        "type": "json",
+        "z": "b144945c4a48b5fe",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 370,
+        "y": 700,
+        "wires": [
+            [
+                "98827d73d03bf630",
+                "29728829b3a41fc3",
+                "35c328769d334a6f"
+            ]
+        ]
+    },
+    {
+        "id": "b1431fbdc12579ae",
+        "type": "json",
+        "z": "b144945c4a48b5fe",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 430,
+        "y": 340,
+        "wires": [
+            [
+                "52a243ab6aec9c38",
+                "adc9bd92dc57a5f4",
+                "37165b756719be6a"
+            ]
+        ]
+    },
+    {
+        "id": "adc9bd92dc57a5f4",
+        "type": "change",
+        "z": "b144945c4a48b5fe",
+        "name": "set_prec_st",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.st",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 740,
+        "wires": [
+            [
+                "5d429674b20ec828",
+                "b862919ed75dc694"
+            ]
+        ]
+    },
+    {
+        "id": "249450124d1115a0",
+        "type": "debug",
+        "z": "b144945c4a48b5fe",
+        "name": "temperature",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "c9cae9469b50d445",
+        "type": "debug",
+        "z": "b144945c4a48b5fe",
+        "name": "pressure",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "98827d73d03bf630",
+        "type": "debug",
+        "z": "b144945c4a48b5fe",
+        "name": "humidity",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "0d4c181c762cedfd",
+        "type": "change",
+        "z": "b144945c4a48b5fe",
+        "name": "set_temp_st",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.st",
+                "pt": "msg",
+                "to": "2",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 800,
+        "wires": [
+            [
+                "b862919ed75dc694"
+            ]
+        ]
+    },
+    {
+        "id": "3c541a441ccf3c1e",
+        "type": "change",
+        "z": "b144945c4a48b5fe",
+        "name": "set_pres_st",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.st",
+                "pt": "msg",
+                "to": "3",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 860,
+        "wires": [
+            [
+                "b862919ed75dc694"
+            ]
+        ]
+    },
+    {
+        "id": "29728829b3a41fc3",
+        "type": "change",
+        "z": "b144945c4a48b5fe",
+        "name": "set_hum_st",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.st",
+                "pt": "msg",
+                "to": "4",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 920,
+        "wires": [
+            [
+                "b862919ed75dc694"
+            ]
+        ]
+    },
+    {
+        "id": "b862919ed75dc694",
+        "type": "join",
+        "z": "b144945c4a48b5fe",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "payload.st",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "2",
+        "count": "4",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 670,
+        "y": 860,
+        "wires": [
+            [
+                "2974c17b20b8e160"
+            ]
+        ]
+    },
+    {
+        "id": "2974c17b20b8e160",
+        "type": "split",
+        "z": "b144945c4a48b5fe",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 790,
+        "y": 740,
+        "wires": [
+            [
+                "183734ee9ca3b392"
+            ]
+        ]
+    },
+    {
+        "id": "183734ee9ca3b392",
+        "type": "change",
+        "z": "b144945c4a48b5fe",
+        "name": "set_params",
+        "rules": [
+            {
+                "t": "set",
+                "p": "queryParameters",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 870,
+        "y": 880,
+        "wires": [
+            [
+                "093b5de550d6cf4c",
+                "c7ec6cdc70106c9e"
+            ]
+        ]
+    },
+    {
+        "id": "37165b756719be6a",
+        "type": "change",
+        "z": "b144945c4a48b5fe",
+        "name": "set_prec",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.val",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 240,
+        "wires": [
+            [
+                "02144d46e3b70971"
+            ]
+        ]
+    },
+    {
+        "id": "b5e6a00fe7fdec3d",
+        "type": "change",
+        "z": "b144945c4a48b5fe",
+        "name": "set_temp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.val",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 420,
+        "wires": [
+            [
+                "86a7d739211c9577",
+                "86e15e3a1b2e7112"
+            ]
+        ]
+    },
+    {
+        "id": "b7b28d5b54716556",
+        "type": "change",
+        "z": "b144945c4a48b5fe",
+        "name": "set_pres",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.val",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 520,
+        "wires": [
+            [
+                "2a6568566b430ef4",
+                "3c9b0c84c3739ff8"
+            ]
+        ]
+    },
+    {
+        "id": "35c328769d334a6f",
+        "type": "change",
+        "z": "b144945c4a48b5fe",
+        "name": "set_hum",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.val",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 640,
+        "wires": [
+            [
+                "676e10aa021f9686",
+                "f935acce70ba9ecc"
+            ]
+        ]
+    },
+    {
+        "id": "bea9b25d0c9d4995",
+        "type": "mqtt-broker",
+        "name": "mqtt",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "8f2d188c9fc6df3a",
+        "type": "ui_group",
+        "name": "Pluviometro",
+        "tab": "ba69ff4645bb3b2f",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "16a162d4405c1de1",
+        "type": "ui_group",
+        "name": "Val. Inst. BMP280",
+        "tab": "ba69ff4645bb3b2f",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a1f80a83719efdad",
+        "type": "ui_group",
+        "name": "DHT11",
+        "tab": "ba69ff4645bb3b2f",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0bbe283e757a5394",
+        "type": "ui_group",
+        "name": "Graficos BMP280",
+        "tab": "ba69ff4645bb3b2f",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bbbd892bf7f0b773",
+        "type": "postgreSQLConfig",
+        "name": "postgres",
+        "host": "127.0.0.1",
+        "hostFieldType": "str",
+        "port": "5432",
+        "portFieldType": "num",
+        "database": "weather_station",
+        "databaseFieldType": "str",
+        "ssl": "false",
+        "sslFieldType": "bool",
+        "applicationName": "",
+        "applicationNameType": "str",
+        "max": "10",
+        "maxFieldType": "num",
+        "idle": "1000",
+        "idleFieldType": "num",
+        "connectionTimeout": "10000",
+        "connectionTimeoutFieldType": "num",
+        "user": "[postgres_user]",
+        "userFieldType": "str",
+        "password": "[postgres_password]",
+        "passwordFieldType": "str"
+    },
+    {
+        "id": "c6e8b648ebccde3a",
+        "type": "ui_group",
+        "name": "Dados Historicos",
+        "tab": "ba69ff4645bb3b2f",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ba69ff4645bb3b2f",
+        "type": "ui_tab",
+        "name": "Weather Station",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
