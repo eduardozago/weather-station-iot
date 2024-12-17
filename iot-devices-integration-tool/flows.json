@@ -8,6 +8,221 @@
         "env": []
     },
     {
+        "id": "bea9b25d0c9d4995",
+        "type": "mqtt-broker",
+        "name": "mqtt",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "8f2d188c9fc6df3a",
+        "type": "ui_group",
+        "name": "Pluviometro",
+        "tab": "ba69ff4645bb3b2f",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "16a162d4405c1de1",
+        "type": "ui_group",
+        "name": "Val. Inst. BMP280",
+        "tab": "ba69ff4645bb3b2f",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a1f80a83719efdad",
+        "type": "ui_group",
+        "name": "DHT11",
+        "tab": "ba69ff4645bb3b2f",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0bbe283e757a5394",
+        "type": "ui_group",
+        "name": "Graficos BMP280",
+        "tab": "ba69ff4645bb3b2f",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bbbd892bf7f0b773",
+        "type": "postgreSQLConfig",
+        "name": "postgres",
+        "host": "127.0.0.1",
+        "hostFieldType": "str",
+        "port": "5432",
+        "portFieldType": "num",
+        "database": "weather_station",
+        "databaseFieldType": "str",
+        "ssl": "false",
+        "sslFieldType": "bool",
+        "applicationName": "",
+        "applicationNameType": "str",
+        "max": "10",
+        "maxFieldType": "num",
+        "idle": "1000",
+        "idleFieldType": "num",
+        "connectionTimeout": "10000",
+        "connectionTimeoutFieldType": "num",
+        "user": "[postgresql_user]",
+        "userFieldType": "str",
+        "password": "[postgresql_pass]",
+        "passwordFieldType": "str"
+    },
+    {
+        "id": "c6e8b648ebccde3a",
+        "type": "ui_group",
+        "name": "Dados Historicos",
+        "tab": "ba69ff4645bb3b2f",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ba69ff4645bb3b2f",
+        "type": "ui_tab",
+        "name": "Weather Station",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "be49607704b56608",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
         "id": "6e5a86a62a6b82da",
         "type": "mqtt in",
         "z": "b144945c4a48b5fe",
@@ -503,7 +718,7 @@
         "type": "postgresql",
         "z": "b144945c4a48b5fe",
         "name": "get_data",
-        "query": "SELECT date_bin('1 minutes', sensors_info.ts, (to_timestamp($startDate) AT TIME ZONE 'America/Sao_Paulo')) as datebucket, avg(sensors_info.val) as avgval from sensors_info WHERE sensors_info.ts > (to_timestamp($startDate) AT TIME ZONE 'America/Sao_Paulo') AND sensors_info.ts < ((to_timestamp($startDate) AT TIME ZONE 'America/Sao_Paulo') + ($range * interval '1 minute')) AND sensors_info.st = $sensorType GROUP BY datebucket, st ORDER BY datebucket ASC;",
+        "query": "SELECT date_bin('1 minutes', sensors_info.ts, (to_timestamp($startDate) AT TIME ZONE 'America/Sao_Paulo')) as timebucket, avg(sensors_info.val) as avgval from sensors_info WHERE sensors_info.ts > (to_timestamp($startDate) AT TIME ZONE 'America/Sao_Paulo') AND sensors_info.ts < ((to_timestamp($startDate) AT TIME ZONE 'America/Sao_Paulo') + ($range * interval '1 minute')) AND sensors_info.st = $sensorType GROUP BY timebucket, st ORDER BY timebucket ASC;",
         "postgreSQLConfig": "bbbd892bf7f0b773",
         "split": false,
         "rowsPerMsg": 1,
@@ -539,7 +754,7 @@
         "type": "function",
         "z": "b144945c4a48b5fe",
         "name": "set_chart_data",
-        "func": "var objectdata = {};\nvar i = 0;\nvar data = [\n    [0]\n];\nfor (i = 0; i < msg.payload.length; i++) {\n\n    objectdata = { \"x\": new Date(msg.payload[i].datebucket).getTime(), \"y\": msg.payload[i].avgval };\n    data[0][i] = objectdata;\n}\n\nvar chart = [{\n    \"series\": [\"\"],\n    \"data\": data,\n    \"labels\": [\"\"]\n}];\n\nmsg.payload = chart;\n\nreturn msg;",
+        "func": "var objectdata = {};\nvar i = 0;\nvar data = [\n    []\n];\n\nfor (i = 0; i < msg.payload.length; i++) {\n    objectdata = { \"x\": new Date(msg.payload[i].timebucket).getTime(), \"y\": msg.payload[i].avgval };\n    data[0][i] = objectdata;\n}\n\nvar chart = [{\n    \"series\": [\"\"],\n    \"data\": data,\n    \"labels\": [\"\"]\n}];\n\nmsg.payload = chart;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -571,8 +786,8 @@
         "interpolate": "linear",
         "nodata": "",
         "dot": false,
-        "ymin": "-30",
-        "ymax": "50",
+        "ymin": "",
+        "ymax": "",
         "removeOlder": 1,
         "removeOlderPoints": "",
         "removeOlderUnit": "86400",
@@ -593,7 +808,7 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 1340,
+        "x": 1320,
         "y": 1380,
         "wires": [
             []
@@ -1054,124 +1269,5 @@
                 "f935acce70ba9ecc"
             ]
         ]
-    },
-    {
-        "id": "bea9b25d0c9d4995",
-        "type": "mqtt-broker",
-        "name": "mqtt",
-        "broker": "127.0.0.1",
-        "port": "1883",
-        "clientid": "",
-        "autoConnect": true,
-        "usetls": false,
-        "protocolVersion": "4",
-        "keepalive": "60",
-        "cleansession": true,
-        "autoUnsubscribe": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthRetain": "false",
-        "birthPayload": "",
-        "birthMsg": {},
-        "closeTopic": "",
-        "closeQos": "0",
-        "closeRetain": "false",
-        "closePayload": "",
-        "closeMsg": {},
-        "willTopic": "",
-        "willQos": "0",
-        "willRetain": "false",
-        "willPayload": "",
-        "willMsg": {},
-        "userProps": "",
-        "sessionExpiry": ""
-    },
-    {
-        "id": "8f2d188c9fc6df3a",
-        "type": "ui_group",
-        "name": "Pluviometro",
-        "tab": "ba69ff4645bb3b2f",
-        "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "16a162d4405c1de1",
-        "type": "ui_group",
-        "name": "Val. Inst. BMP280",
-        "tab": "ba69ff4645bb3b2f",
-        "order": 5,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "a1f80a83719efdad",
-        "type": "ui_group",
-        "name": "DHT11",
-        "tab": "ba69ff4645bb3b2f",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "0bbe283e757a5394",
-        "type": "ui_group",
-        "name": "Graficos BMP280",
-        "tab": "ba69ff4645bb3b2f",
-        "order": 6,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "bbbd892bf7f0b773",
-        "type": "postgreSQLConfig",
-        "name": "postgres",
-        "host": "127.0.0.1",
-        "hostFieldType": "str",
-        "port": "5432",
-        "portFieldType": "num",
-        "database": "weather_station",
-        "databaseFieldType": "str",
-        "ssl": "false",
-        "sslFieldType": "bool",
-        "applicationName": "",
-        "applicationNameType": "str",
-        "max": "10",
-        "maxFieldType": "num",
-        "idle": "1000",
-        "idleFieldType": "num",
-        "connectionTimeout": "10000",
-        "connectionTimeoutFieldType": "num",
-        "user": "[postgres_user]",
-        "userFieldType": "str",
-        "password": "[postgres_password]",
-        "passwordFieldType": "str"
-    },
-    {
-        "id": "c6e8b648ebccde3a",
-        "type": "ui_group",
-        "name": "Dados Historicos",
-        "tab": "ba69ff4645bb3b2f",
-        "order": 4,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "ba69ff4645bb3b2f",
-        "type": "ui_tab",
-        "name": "Weather Station",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
     }
 ]

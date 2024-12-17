@@ -18,15 +18,34 @@
 // credenciais de acesso à rede WIFI e ao servidor MQTT
 #include "credentials.ino"
 
+// definições de variáveis de configuração
+#include "config.ino"
+
+#ifndef CLIENT_ID
 #define CLIENT_ID 1
+#endif
 
+#ifndef DISABLE_LATER_NTP_UP_RETRY
+#define DISABLE_LATER_NTP_UP_RETRY 1 // valor que indica se, a cada iteração, a atualização do RTC a partir do tempo do servidor NTP deve ser obrigatória, impedindo a próxima iteração caso não ocorra
+#endif
+
+// IT_UP_INT, NTP_UP_INT e NTP_UP_RETRY_INT são inteiros que indicam intervalos em ms
+
+#ifndef RS
 #define RS 2 // Pino do reed switch
-#define DHTPIN 4 // Pino do sensor DHT11
-#define DHTTYPE DHT11 // Tipo do sensor DHT11
+#endif
 
-#define UP_IT_INT  2000 // en ms, intervalo de tempo entre as medições (seguidas de envios)
+#ifndef DHTPIN
+#define DHTPIN 4 // Pino do sensor DHT
+#endif
 
-#define UP_NTP_INT 7200000 // em ms, intervalo de tempo para atualizar o tempo atual a partir do servidor NTP
+#ifndef DHTTYPE
+#define DHTTYPE DHT11 // Tipo do sensor DHT
+#endif
+
+#ifndef DISABLE_LATER_NTP_UP_RETRY
+#define DISABLE_LATER_NTP_UP_RETRY 1
+#endif
 
 char wifi_ssid[] = CRED_WIFI_SSID;
 char wifi_pass[] = CRED_WIFI_PASS;
@@ -37,18 +56,17 @@ char mqtt_pass[] = CRED_MQTT_PASS;
 WiFiClient wifi_client;
 PubSubClient mqtt_client(wifi_client);
 
-const char broker[] = "[mqtt_host]";
-int        port     = 1883;
-const char prec_topic[]  = "prec";
-const char temp_topic[]  = "temp";
-const char pres_topic[]  = "pres";
-const char hum_topic[]  = "hum";
+const char broker[] = CONFIG_MQTT_ADDRESS;
+const char prec_topic[]  = CONFIG_PREC_TOPIC;
+const char temp_topic[]  = CONFIG_TEMP_TOPIC;
+const char pres_topic[]  = CONFIG_PRES_TOPIC;
+const char hum_topic[]  = CONFIG_HUM_TOPIC;
 
-//Variáveis relativas ao BMP280
+// Variáveis relativas ao BMP280
 
 Adafruit_BMP280 bmp;
 
-//Variáveis relativas ao DHT11
+// Variáveis relativas ao DHT11
 
 int value = 0;
 
@@ -63,13 +81,15 @@ float precipitation_depth = 0.0;
 unsigned int debounce_time = 50;
 unsigned long last_rs_time = 0;
 
-// ntp
+// NTP
 WiFiUDP ntpUDP;
 
-NTPClient timeClient(ntpUDP, "[ntp_host]", 0, UP_NTP_INT); // NTP está definido para UTC (0)
+const char ntp_host[] = CONFIG_NTP_HOST;
 
-// rtc
-ESP32Time rtc(-10800); // RTC está definido para UTC-3 (-10800)
+NTPClient timeClient(ntpUDP, ntp_host, CONFIG_NTP_TIMEOFFSET, NTP_UP_INT); // dados de definição do cliente NTP, por exemplo: o timeoffset UTC+0 é definido como 0
+
+// RTC
+ESP32Time rtc(CONFIG_RTC_TIMEOFFSET); // // timeoffset do RTC em s, por exemplo: UTC-3 é definido como -10800
 
 void cb(char* topic, byte* payload, unsigned int length) {
   Serial.print("Mensagem obtida: <");
@@ -184,7 +204,7 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   // Configuração do MQTT
-  mqtt_client.setServer(broker, 1883);
+  mqtt_client.setServer(broker, CONFIG_MQTT_PORT);
   mqtt_client.setCallback(cb);
 
   // Configuração do RS
@@ -200,8 +220,6 @@ void setup() {
     Serial.print("ID do Sensor: 0x"); Serial.println(bmp.sensorID(),16);
     Serial.println(F("Não foi possível encontrar um sensor BMP280 válido, verifique as conexões ou tente um endereço diferente!"));
 
-    delay(500);
-    
     while (1) delay(10);
   }
 
@@ -213,9 +231,10 @@ void setup() {
   
   timeClient.begin();
 
-  delay(10);
-
-  timeClient.update();
+  while(!(timeClient.forceUpdate())) {
+    Serial.println(F("Tentando obter hora atual do servidor NTP"));
+    delay(NTP_UP_RETRY_INT);
+  }
 
   delay(10);
 
@@ -225,6 +244,9 @@ void setup() {
 void loop() {
 
   unsigned long last_it_time = 0;
+#if DISABLE_LATER_NTP_UP_RETRY == 0
+  unsigned long last_it_ntp_up_time = 0;
+#endif
 
   JsonDocument doc;
 
@@ -232,7 +254,7 @@ void loop() {
 
   while(1) {
 
-    if (millis() - last_it_time > 2000 ) {
+    if (millis() - last_it_time > IT_UP_INT ) {
       if (!mqtt_client.connected()) {
         reconnect_mqtt();
       }
@@ -300,11 +322,19 @@ void loop() {
       Serial.println( rtc.getEpoch() );
       Serial.println( rtc.getTime("%A, %B %d %Y %H:%M:%S") );
 
+#if DISABLE_LATER_NTP_UP_RETRY
       if(timeClient.update()) {
-        delay(10);
         rtc.setTime( timeClient.getEpochTime() );
       }
-      
+#else
+      if((millis() - last_it_ntp_up_time) > NTP_UP_INT) {
+        while(!(timeClient.forceUpdate())) {
+          Serial.println(F("Tentando obter hora atual do servidor NTP"));
+          delay(NTP_UP_RETRY_INT);
+        }
+        rtc.setTime( timeClient.getEpochTime() );
+      }
+#endif 
     }
   }
 
